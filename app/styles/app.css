@@ -1,0 +1,16 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+}
+.bg-white {
+  background-color: white;
+  color: black;
+}
+.bg-black {
+  background-color: black;
+  color: white;
+}
+.text-white {
+  color: white;
+}
