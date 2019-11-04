@@ -32,6 +32,11 @@ footer {
   margin-top: 90vh;
   padding: 1em;
 }
+h2 {
+  line-height: 1;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
 header {
   font-size: 1.5;
   font-weight: bold;
