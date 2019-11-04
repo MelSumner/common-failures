@@ -21,8 +21,41 @@
   <li><button>🇯🇵</button> - this is not okay because there is no aria-label on the button, and only an emoji (japanese flag) inside of the button, which alone is not enough information.</li>
 </ul>
 
-<h2>Proposed Test</h2>
+<h2>Linting Ideas</h2>
 <ol>
-  <li>if an emoji, glyph or icon is the only child of an element, then aria-label, aria-labelledby, or aria-describedby must exist on the parent element</li>
-  <li>if an emoji, glyph, or icon is a child element but not the only child element, it should be marked with aria-hidden="true" [?]</li>
+  <li>
+    if an element contains only an emoji, glyph or icon as the text:
+    <ul>
+      <li>aria-label, aria-labelledby, or aria-describedby must exist on the element</li>
+      <li>OR the element must have the attribute <code>role="img"</code> (and have alt text, but a different linting rule will catch that)</li>
+    </ul>
+  </li>
+  <li>
+    if an emoji, glyph, or icon is a child element but not the only child element:
+    <ul>
+      <li>it should be marked with <code>aria-hidden="true"</code></li>
+      <li>OR it should have the attribute <code>role="img"</code></li>
+    </ul>   
+  </li>
+  <li>
+    if an element is the only child element AND has the attribute <code>aria-hidden="true"</code>:
+    <ul>
+      <li>the parent element must have one of these attributes: aria-label, aria-labelledby, aria-describedby</li>
+    </ul>
+  </li>
+  <li>
+    if the element is an SVG:
+    <ul>
+      <li>check for a title element as a child element of the SVG element</li>
+      <li>OR check for the attribute <code>aria-hidden="true"</code></li>
+    </ul>
+  </li>
+  <li>
+    if the element is a span and contains a glyph/emoji/icon as the text content:
+    <ul>
+      <li>the span element should be marked with <code>aria-hidden="true"</code></li>
+      <li>technically, the span element could have a role on it (like role="img") but that would be poorly crafted code</li>
+    </ul>
+  </li>
+
 </ol>
